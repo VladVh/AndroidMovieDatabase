@@ -3,10 +3,12 @@
     <string-array name="listSortOrder">
         <item>User rating</item>
         <item>Popularity</item>
+        <item>Favorites</item>
     </string-array>
 
     <string-array name="listSortValues">
         <item>1</item>
         <item>2</item>
+        <item>3</item>
     </string-array>
 </resources>

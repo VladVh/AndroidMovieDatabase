@@ -1,16 +1,17 @@
-package com.example.vlad.moviedatabase.recyclerview;
+package com.example.vlad.moviedatabase;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.vlad.moviedatabase.DetailsActivity;
-import com.example.vlad.moviedatabase.R;
 import com.example.vlad.moviedatabase.data.Movie;
+import com.example.vlad.moviedatabase.data.MovieContract;
+import com.example.vlad.moviedatabase.recyclerview.IMyViewHolderClickListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -25,11 +26,14 @@ public class MoviesRecyclerAdapter extends
     // Store a member variable for the contacts
     private List<Movie> mMovies = new ArrayList<>();
     private Context mContext;
+    private Cursor mCursor;
+    private String mSortOrder;
     private IMyViewHolderClickListener mListener;
 
     // Pass in the contact array into the constructor
-    public MoviesRecyclerAdapter(List<Movie> movies) {
+    public MoviesRecyclerAdapter(List<Movie> movies, Context context) {
         mMovies = movies;
+        mSortOrder = Utility.getSortOrder(context);
     }
 
     // Provide a direct reference to each of the views within a data item
@@ -65,11 +69,21 @@ public class MoviesRecyclerAdapter extends
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         mContext = parent.getContext();
+        mSortOrder = Utility.getSortOrder(mContext);
+
         mListener = new IMyViewHolderClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 Intent intent = new Intent(mContext, DetailsActivity.class);
-                intent.putExtra(DetailsActivity.CONTENT, mMovies.get(position));
+                int id;
+                if (mSortOrder.equals("favorites")) {
+                    mCursor.moveToPosition(position);
+                    id = mCursor.getInt(MoviesListFragment.COL_MOVIE_ID);
+                } else {
+                    id = mMovies.get(position).getId();
+                    intent.putExtra(DetailsActivity.CONTENT, mMovies.get(position));
+                }
+                intent.setData(MovieContract.MovieEntry.buildMovieUriWithId(id));
                 mContext.startActivity(intent);
             }
         };
@@ -81,20 +95,37 @@ public class MoviesRecyclerAdapter extends
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        Movie movie = mMovies.get(position);
-        viewHolder.setCurrent(movie);
+        String poster;
+        if (mSortOrder.equals("favorites")) {
+            mCursor.moveToPosition(position);
+            poster = mCursor.getString(MoviesListFragment.COL_MOVIE_POSTER);
+        } else {
+            Movie movie = mMovies.get(position);
+            viewHolder.setCurrent(movie);
+            poster = movie.getPoster();
+        }
 
-        String url = "http://image.tmdb.org/t/p/w185/" + movie.getPoster();
+        String url = "http://image.tmdb.org/t/p/w185/" + poster;
         Picasso.with(mContext).load(url)
                 .into(viewHolder.imageView);
     }
 
     @Override
     public int getItemCount() {
-        return mMovies.size();
+        if (mSortOrder.equals("favorites")) {
+            if (null == mCursor) return 0;
+            return mCursor.getCount();
+        } else {
+            return mMovies.size();
+        }
     }
 
     public void addContent(List<Movie> movies) {
         mMovies.addAll(movies);
+    }
+
+    public void swapCursor(Cursor newCursor) {
+        mCursor = newCursor;
+        notifyDataSetChanged();
     }
 }

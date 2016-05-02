@@ -54,11 +54,20 @@
                     android:layout_height="wrap_content" />
 
                 <Button
+                    android:id="@+id/detail_favorite_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_1_background"
                     android:text="@string/favorite"
+                    android:clickable="true"
                     android:onClick="onButtonFavoriteClick"/>
+
+                <TextView
+                    android:id="@+id/detail_favorite_added"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/marked_favorite"
+                    android:visibility="invisible"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -78,6 +87,14 @@
             android:padding="10dp"
             />
 
+        <ListView
+            android:id="@+id/detail_movie_reviews"
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            />
     </LinearLayout>
+
+
 
 </ScrollView>

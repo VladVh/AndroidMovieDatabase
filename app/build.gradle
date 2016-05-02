@@ -19,7 +19,6 @@ android {
     }
     buildTypes.each {
         it.buildConfigField 'String', 'THEMOVIEDB_API_KEY', '"YOUR_THEMOVIEDB_API_KEY"'
-        it.buildConfigField 'String', 'YOUTUBE_API_KEY', '"YOUR_YOUTUBE_API_KEY"'
     }
 
     repositories {

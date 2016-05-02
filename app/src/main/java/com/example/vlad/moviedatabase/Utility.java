@@ -20,6 +20,9 @@ public class Utility {
             case "2": {
                 return "popularity.desc";
             }
+            case "3": {
+                return "favorites";
+            }
         }
         return null;
     }

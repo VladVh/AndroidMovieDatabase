@@ -26,7 +26,7 @@ public class TrailersListAdapter extends ArrayAdapter<Trailer> {
         View v = convertView;
 
         if (v == null) {
-            v = LayoutInflater.from(getContext()).inflate(R.layout.trailer_item, null);
+            v = LayoutInflater.from(getContext()).inflate(R.layout.movie_trailer_item, null);
         }
 
         Trailer trailer = getItem(position);

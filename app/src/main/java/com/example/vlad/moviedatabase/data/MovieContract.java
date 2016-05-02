@@ -32,6 +32,9 @@ public class MovieContract {
         public static final String CONTENT_TYPE =
                 ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_MOVIES;
 
+        public static final String CONTENT_ITEM_TYPE =
+                ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_MOVIES;
+
         public static final String TABLE_NAME = "movie";
 
         public static final String COLUMN_TITLE = "title";
@@ -44,8 +47,18 @@ public class MovieContract {
 
         public static final String COLUMN_USER_RATING = "vote_average";
 
+        public static final String COLUMN_POPULARITY = "popularity";
+
+        public static String getMovieIDFromUri(Uri uri) {
+            return uri.getPathSegments().get(1);
+        }
+
         public static Uri buildMovieUriWithId(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
+        }
+
+        public static Uri buildMovieUri() {
+            return CONTENT_URI;
         }
     }
 }
