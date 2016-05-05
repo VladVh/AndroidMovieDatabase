@@ -1,7 +1,7 @@
 package com.example.vlad.moviedatabase.data;
 
 /**
- * Created by Vlad on 21.04.2016.
+ * This class saves the trailer info after the fetch.
  */
 public class Trailer {
     private String name;

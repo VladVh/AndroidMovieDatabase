@@ -13,7 +13,7 @@ import com.example.vlad.moviedatabase.data.Review;
 import java.util.List;
 
 /**
- * Created by Vlad on 28.04.2016.
+ * Adapter to display all the movie's reviews
  */
 public class ReviewsListAdapter extends ArrayAdapter<Review> {
     boolean isExpanded = false;

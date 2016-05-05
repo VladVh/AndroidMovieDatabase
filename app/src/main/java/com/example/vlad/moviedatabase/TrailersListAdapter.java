@@ -13,7 +13,7 @@ import com.example.vlad.moviedatabase.data.Trailer;
 import java.util.List;
 
 /**
- * Created by Vlad on 21.04.2016.
+ * Adapter to display all the movie's trailers
  */
 public class TrailersListAdapter extends ArrayAdapter<Trailer> {
 

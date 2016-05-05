@@ -1,7 +1,7 @@
 package com.example.vlad.moviedatabase.data;
 
 /**
- * Created by Vlad on 28.04.2016.
+ * This class saves the review info after the fetch.
  */
 public class Review {
     private String author;

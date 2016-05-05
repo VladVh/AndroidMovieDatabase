@@ -24,7 +24,9 @@ import com.example.vlad.moviedatabase.recyclerview.GridSpacingItemDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Displays all the movies that are fetched either from THEMOVIEDB or from the database.
+ */
 public class MoviesListFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
     private static final String LOG_TAG = MoviesListFragment.class.getSimpleName();
     private static final int LOADER_ID = 0;

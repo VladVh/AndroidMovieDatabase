@@ -6,7 +6,8 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 
 /**
- * Created by Vlad on 12.04.2016.
+ * This is a helper class for use with the database. It provides base Uris
+ * and has an inner class with Movie table columns names.
  */
 public class MovieContract {
 

@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 /**
- * Created by Vlad on 20.04.2016.
+ * Helper class, provides a method to check the current movies sort order
  */
 public class Utility {
 

@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.TreeMap;
 
 /**
- * Created by Vlad on 28.04.2016.
+ * A Class to fetch the movie's reviews from THEMOVIEDB
  */
 public class FetchReviewTask extends AsyncTask<Integer, Void, List<Review>> {
     private DetailFragment mFragment;

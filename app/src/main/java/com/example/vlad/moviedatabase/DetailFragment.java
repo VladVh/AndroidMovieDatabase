@@ -24,6 +24,10 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+/**
+ * Class provides movie details logic. It shows all the necessary information about the chosen movie
+ * and displays movie's trailers and reviews.
+ */
 public class DetailFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
     public static final String CONTENT = "data";
     public static final String DETAIL_URI = "URI";

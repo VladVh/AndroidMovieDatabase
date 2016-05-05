@@ -3,6 +3,9 @@ package com.example.vlad.moviedatabase.recyclerview;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+/**
+ * This class gives us an opportunity to have an endless scroll using the recycler view
+ */
 public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnScrollListener {
     // The minimum amount of items to have below your current scroll position
     // before loading more.

@@ -4,7 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by Vlad on 16.04.2016.
+ * Class implements Parcelable interface, because its objects are transferred between fragments.
+ * It provides all needed information about a movie.
  */
 public class Movie implements Parcelable {
     private String title;

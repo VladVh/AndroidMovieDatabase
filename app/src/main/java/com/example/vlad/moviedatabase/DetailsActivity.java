@@ -12,7 +12,7 @@ import com.example.vlad.moviedatabase.data.Movie;
 import com.example.vlad.moviedatabase.data.MovieContract;
 
 /**
- * Created by Vlad on 18.04.2016.
+ * An activity that works with the DetailFragment.class. It has a method to write the favorite movie to the db.
  */
 public class DetailsActivity extends AppCompatActivity {
     public static final String CONTENT = "data";

@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Vlad on 16.04.2016.
+ * Adapter to work with the data using the recycler view
  */
 public class MoviesRecyclerAdapter extends
         RecyclerView.Adapter<MoviesRecyclerAdapter.ViewHolder> {

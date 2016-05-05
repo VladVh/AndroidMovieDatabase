@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Vector;
 
 /**
- * Created by Vlad on 13.04.2016.
+ * A Class to fetch the movies information from THEMOVIEDB
  */
 public class FetchMoviesTask extends AsyncTask<Integer, Void, List<Movie>> {
     private static final String LOG_TAG = FetchMoviesTask.class.getSimpleName();

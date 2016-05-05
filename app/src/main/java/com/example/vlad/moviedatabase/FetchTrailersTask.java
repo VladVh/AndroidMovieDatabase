@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Vlad on 21.04.2016.
+ * A Class to fetch the movie's trailers from THEMOVIEDB
  */
 public class FetchTrailersTask extends AsyncTask<Integer, Void, List<Trailer>> {
     private DetailFragment mFragment;

@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 
 /**
- * Created by Vlad on 12.04.2016.
+ * This class does the main job when contacting with the db.
  */
 public class MovieProvider extends ContentProvider {
     // The URI Matcher used by this content provider.
